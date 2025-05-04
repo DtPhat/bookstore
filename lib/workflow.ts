@@ -1,6 +1,6 @@
 import { Client as WorkflowClient } from "@upstash/workflow";
 import config from "@/lib/config";
-import emailjs from "@/lib/emailjs";
+// import emailjs from "@/lib/emailjs";
 
 export const workflowClient = new WorkflowClient({
   baseUrl: config.env.upstash.qstashUrl,
@@ -24,13 +24,14 @@ export const sendEmail = async ({
       name: "Phat Doan",
     };
 
-    await emailjs.send(
-      config.env.emailjs.serviceId,
-      config.env.emailjs.templateId,
-      templateParams
-    );
+    console.log(JSON.stringify(templateParams))
 
-    console.log(`Email sent successfully to ${email}`);
+    // await emailjs.send(
+    //   config.env.emailjs.serviceId,
+    //   config.env.emailjs.templateId,
+    //   templateParams
+    // );
+    // console.log(`Email sent successfully to ${email}`);
   } catch (error) {
     console.error("Failed to send email:", error);
     throw error;

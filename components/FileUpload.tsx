@@ -80,6 +80,7 @@ const FileUpload = ({
 
   const onSuccess = (res: any) => {
     setFile(res);
+    console.log(res.filePath)
     onFileChange(res.filePath);
 
     toast({
